@@ -32,10 +32,11 @@ pip install requests beautifulsoup4 selenium mysql-connector-python
 
 ### 4. **Set Up MySQL Database**
 Ensure you have MySQL installed and running. Create a database and table to store the scraped data:
-CREATE DATABASE `draft` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */
+
 ```sql
-CREATE DATABASE web_scraping;
-USE web_scraping;
+CREATE DATABASE `draft` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */
+/*CREATE DATABASE draft;*/
+USE draft;
 CREATE TABLE scraped_data (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255),
