@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-service = Service("/home/devmadhardy/projects/draftpy/src/chromedrv/chromedriver")
+service = Service("/home/mainhead/projects/draftpy/src/chromedrv/chromedriver")
 #options = Options()
 #options.add_argument("--headless")  # Run in headless mode (no GUI)
 #options.add_argument("--no-sandbox")  # Bypass OS security

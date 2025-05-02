@@ -175,3 +175,12 @@ cython_debug/
 .pypirc
 
 app.yaml
+pyvenv.cfg
+bin/activate
+bin/activate.csh
+bin/activate.fish
+bin/normalizer
+bin/pip
+bin/pip3
+bin/pip3.12
+bin/wsdump
