@@ -1,0 +1,65 @@
+teams:
+- name: Arizona Cardinals
+  slug: Arizona-Cardinals
+- name: Atlanta Falcons
+  slug: Atlanta-Falcons
+- name: Baltimore Ravens
+  slug: Baltimore-Ravens
+- name: Buffalo Bills
+  slug: Buffalo-Bills
+- name: Carolina Panthers
+  slug: Carolina-Panthers
+- name: Chicago Bears
+  slug: Chicago-Bears
+- name: Cincinnati Bengals
+  slug: Cincinnati-Bengals
+- name: Cleveland Browns
+  slug: Cleveland-Browns
+- name: Dallas Cowboys
+  slug: Dallas-Cowboys
+- name: Denver Broncos
+  slug: Denver-Broncos
+- name: Detroit Lions
+  slug: Detroit-Lions
+- name: Green Bay Packers
+  slug: Green-Bay-Packers
+- name: Houston Texans
+  slug: Houston-Texans
+- name: Indianapolis Colts
+  slug: Indianapolis-Colts
+- name: Jacksonville Jaguars
+  slug: Jacksonville-Jaguars
+- name: Kansas City Chiefs
+  slug: Kansas-City-Chiefs
+- name: Las Vegas Raiders
+  slug: Las-Vegas-Raiders
+- name: Los Angeles Chargers
+  slug: Los-Angeles-Chargers
+- name: Los Angeles Rams
+  slug: Los-Angeles-Rams
+- name: Miami Dolphins
+  slug: Miami-Dolphins
+- name: Minnesota Vikings
+  slug: Minnesota-Vikings
+- name: New England Patriots
+  slug: New-England-Patriots
+- name: New Orleans Saints
+  slug: New-Orleans-Saints
+- name: New York Giants
+  slug: New-York-Giants
+- name: New York Jets
+  slug: New-York-Jets
+- name: Philadelphia Eagles
+  slug: Philadelphia-Eagles
+- name: Pittsburgh Steelers
+  slug: Pittsburgh-Steelers
+- name: San Francisco 49ers
+  slug: San-Francisco-49ers
+- name: Seattle Seahawks
+  slug: Seattle-Seahawks
+- name: Tampa Bay Buccaneers
+  slug: Tampa-Bay-Buccaneers
+- name: Tennessee Titans
+  slug: Tennessee-Titans
+- name: Washington Commanders
+  slug: Washington-Commanders

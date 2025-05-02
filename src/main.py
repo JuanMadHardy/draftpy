@@ -5,9 +5,9 @@ import mysql.connector
 # Connect to MySQL
 db = mysql.connector.connect(
     host="localhost",
-    user="your_user",
-    password="your_password",
-    database="web_scraping"
+    user="root",
+    password="kuko8701",
+    database="draft"
 )
 cursor = db.cursor()
 
@@ -21,7 +21,7 @@ title = soup.find("h1").text
 description = soup.find("p").text
 
 # Insert data into MySQL
-cursor.execute("INSERT INTO scraped_data (title, description) VALUES (%s, %s)", (title, description))
+cursor.execute("INSERT INTO teams (title, description) VALUES (%s, %s)", (title, description))
 db.commit()
 
 # Close connection

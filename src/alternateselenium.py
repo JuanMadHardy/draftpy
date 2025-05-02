@@ -1,16 +1,18 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
-#from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import yaml
+
 
 service = Service("/home/mainhead/projects/draftpy/src/chromedrv/chromedriver")
-#options = Options()
-#options.add_argument("--headless")  # Run in headless mode (no GUI)
+options = Options()
+options.add_argument("--headless")  # Run in headless mode (no GUI)
 #options.add_argument("--no-sandbox")  # Bypass OS security
-driver = webdriver.Chrome(service=service)
-
+driver = webdriver.Chrome(service=service, options=options)
+teams = []
 
 # Specify the path to your ChromeDriver (or other browser driver)
 # If it's in your PATH, you can skip this line
@@ -36,3 +38,11 @@ finally:
     #print(f"Title of the page: {driver.title}")
     # Close the browser
     driver.quit()
+
+data = {"teams": [{"name": team, "slug": team.lower().replace(" ", "-")} for team in teams]}
+
+with open("teams.yaml", "w") as file:
+    yaml.dump(data, file, default_flow_style=False)
+
+print("YAML file created successfully!")
+
