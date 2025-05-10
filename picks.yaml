@@ -1,0 +1,21 @@
+teams:
+- name: ''
+  slug: ''
+- name: "\n1\nPick 30\n(30)\nMaxwell Hairston\nCB\n\xB7\nKentucky\n"
+  slug: "\n1\npick-30\n(30)\nmaxwell-hairston\ncb\n\xB7\nkentucky\n"
+- name: "\n2\nPick 9\n(41)\nT.J. Sanders\nDT\n\xB7\nSouth Carolina\n"
+  slug: "\n2\npick-9\n(41)\nt.j.-sanders\ndt\n\xB7\nsouth-carolina\n"
+- name: "\n3\nPick 8\n(72)\nLandon Jackson\nEDGE\n\xB7\nArkansas\n"
+  slug: "\n3\npick-8\n(72)\nlandon-jackson\nedge\n\xB7\narkansas\n"
+- name: "\n4\nPick 7\n(109)\nDeone Walker\nDT\n\xB7\nKentucky\n"
+  slug: "\n4\npick-7\n(109)\ndeone-walker\ndt\n\xB7\nkentucky\n"
+- name: "\n5\nPick 34\n(170)\nJordan Hancock\nCB\n\xB7\nOhio State\n"
+  slug: "\n5\npick-34\n(170)\njordan-hancock\ncb\n\xB7\nohio-state\n"
+- name: "\n5\nPick 37\n(173)\nJackson Hawes\nTE\n\xB7\nGeorgia Tech\n"
+  slug: "\n5\npick-37\n(173)\njackson-hawes\nte\n\xB7\ngeorgia-tech\n"
+- name: "\n6\nPick 1\n(177)\nDorian Strong\nCB\n\xB7\nVirginia Tech\n"
+  slug: "\n6\npick-1\n(177)\ndorian-strong\ncb\n\xB7\nvirginia-tech\n"
+- name: "\n6\nPick 30\n(206)\nChase Lundt\nOT\n\xB7\nConnecticut\n"
+  slug: "\n6\npick-30\n(206)\nchase-lundt\not\n\xB7\nconnecticut\n"
+- name: "\n7\nPick 24\n(240)\nKaden Prather\nWR\n\xB7\nMaryland"
+  slug: "\n7\npick-24\n(240)\nkaden-prather\nwr\n\xB7\nmaryland"
