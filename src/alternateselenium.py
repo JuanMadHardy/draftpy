@@ -1,3 +1,6 @@
+from logging import basicConfig, error, info, INFO
+import time
+import re
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -5,12 +8,20 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import yaml
-import time
 
-""" ojo hay que cambiar el path del chromedriver la carpeta por cada usuario
-/home/devmadhardy/projects/draftpy/src/chromedrv/chromedriver
-"""
-service = Service("/home/devmadhardy/projects/draftpy/src/chromedrv/chromedriver")
+
+basicConfig(
+    filename='selnium_logging.log',
+    filemode='a',
+    level=INFO,
+    format='[%(asctime)s] [%(levelname)s] [pid %(process)d] %(message)s',
+    datefmt="%d/%m/%Y %H:%M"
+)
+
+#ojo hay que cambiar el path del chromedriver la carpeta por cada usuario
+#/home/devmadhardy/projects/draftpy/src/chromedrv/chromedriver
+
+service = Service("/home/mainhead/projects/draftpy/src/chromedrv/chromedriver")
 options = Options()
 options.add_argument("--headless")  # Run in headless mode (no GUI)
 #options.add_argument("--no-sandbox")  # Bypass OS security
@@ -40,7 +51,7 @@ try:
             )
             if dataPicks:
                 break  # Salir del bucle si se encuentran los elementos
-        except Exception as e:
+        except ImportError as e:
             print(f"Intento {retry_count + 1} fallido: {e}")
             retry_count += 1
             time.sleep(5)  # Esperar 5 segundos antes de reintentar
@@ -56,17 +67,31 @@ try:
     #print(f"tipo de elemento: {type(teams)}")
     #print(f"Elemento encontrado: {teams}")
     print(f"Elemento encontrado: {picks}")
-except Exception as e:
+    info("Elemento encontrado: %s", picks)
+
+except ImportError as e:
     print(f"Error: {e}")
+    error("Error: %s", e)
 finally:
     # Print the title of the page
     #print(f"Title of the page: {driver.title}")
     # Close the browser
     driver.quit()
 
-data = {"teams": [{"name": pick, "slug": pick.lower().replace(" ", "-")} for pick in picks]}
+#data = {"picks": [{"name": pick, "slug": pick.lower().replace(" ", "-")} for pick in picks]}
 
-with open("picks.yaml", "w") as file:
+data = {
+    "picks": [
+        {
+            "name": re.sub(r"[\n]+", "", pick.lower()),
+            "slug": re.sub(r"[\n\s]+", "-", pick.lower())
+        }
+        for pick in picks
+    ]
+}
+
+
+with open("picks.yaml", "w", encoding="utf-8") as file:
     yaml.dump(data, file, default_flow_style=False)
 
 print("YAML file created successfully!")
