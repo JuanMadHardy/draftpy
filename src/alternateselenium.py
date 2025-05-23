@@ -20,8 +20,10 @@ basicConfig(
 
 #ojo hay que cambiar el path del chromedriver la carpeta por cada usuario
 #/home/devmadhardy/projects/draftpy/src/chromedrv/chromedriver
+#service = Service("/home/mainhead/projects/draftpy/src/chromedrv/chromedriver")
 
-service = Service("/home/mainhead/projects/draftpy/src/chromedrv/chromedriver")
+
+service = Service("/home/devmadhardy/projects/draftpy/src/chromedrv/chromedriver")
 options = Options()
 options.add_argument("--headless")  # Run in headless mode (no GUI)
 #options.add_argument("--no-sandbox")  # Bypass OS security
