@@ -19,8 +19,9 @@ basicConfig(
 )
 
 #ojo hay que cambiar el path del chromedriver la carpeta por cada usuario
-#/home/devmadhardy/projects/draftpy/src/chromedrv/chromedriver
-#service = Service("/home/mainhead/projects/draftpy/src/chromedrv/chromedriver")
+# service = Service(LA OPCION ELEGIDA CON SU PATH)
+#"/home/devmadhardy/projects/draftpy/src/chromedrv/chromedriver"
+#"/home/mainhead/projects/draftpy/src/chromedrv/chromedriver"
 
 
 service = Service("/home/devmadhardy/projects/draftpy/src/chromedrv/chromedriver")
