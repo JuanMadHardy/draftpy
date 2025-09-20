@@ -38,7 +38,8 @@ picks = []
 #driver = webdriver.Chrome()
 
 # Navigate to a website
-driver.get("https://www.nfl.com/draft/tracker/teams/buffalo-bills/2025")
+# driver.get("https://www.nfl.com/draft/tracker/teams/buffalo-bills/2025")
+driver.get("https://www.espn.com/contributor/adam-schefter")
 time.sleep(5)
 try:
     # Intentar encontrar los elementos con un bucle de reintento
