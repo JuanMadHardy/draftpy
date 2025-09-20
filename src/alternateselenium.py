@@ -19,8 +19,15 @@ logging.basicConfig(
 )
 
 # Constantes
+DRAFT_URL = os.getenv(
+    "DRAFT_URL", "https://www.nfl.com/draft/tracker/teams/buffalo-bills/2025"
+)
+TEAM_SITE = os.getenv("TEAM_SITE", "https://www.nfl.com/international")
+PICKS_YAML = os.getenv("PICKS_YAML", "picks.yaml")
+
+# Definir correctamente la ruta del chromedriver
 CHROMEDRIVER_PATH = os.getenv(
-    "CHROMEDRIVER_PATH", "/home/devmadhardy/projects/draftpy/src/chromedrv/chromedriver"
+    "CHROMEDRIVER_PATH", "/home/mainhead/projects/draftpy/src/chromedrv/chromedriver"
 )
 DRAFT_URL = os.getenv(
     "DRAFT_URL", "https://www.nfl.com/draft/tracker/teams/buffalo-bills/2025"
@@ -40,13 +47,13 @@ driver = webdriver.Chrome(service=service, options=options)
 
 # Navigate to a website
 # driver.get("https://www.nfl.com/draft/tracker/teams/buffalo-bills/2025")
-driver.get("https://www.espn.com/contributor/adam-schefter")
-time.sleep(5)
-try:
-    # Intentar encontrar los elementos con un bucle de reintento
-    max_retries = 3
-    retry_count = 0
-    while retry_count < max_retries:
+
+def get_data_picks(driver):
+    driver.get("https://www.espn.com/contributor/adam-schefter")
+    time.sleep(5)
+    wait_time = 10  # segundos
+    retries = 3
+    for attempt in range(retries):
         try:
             data_picks = WebDriverWait(driver, wait_time).until(
                 EC.presence_of_all_elements_located(
@@ -75,11 +82,12 @@ def get_footer_url_teams(driver):
         for li in li_elements:
             a_tag = li.find_element(By.TAG_NAME, "a")
             url = a_tag.get_attribute("href")
-            # Extraer el nombre del equipo usando regex desde la URL
-            match = re.search(r"https?://(?:www\.)?([^.]+)", url)
-            team_name = match.group(1) if match else url
-            if url and team_name:
-                teams_urls[team_name] = url
+            # Solo aplicar regex si url no es None
+            if url:
+                match = re.search(r"https?://(?:www\.)?([^.]+)", url)
+                team_name = match.group(1) if match else url
+                if team_name:
+                    teams_urls[team_name] = url
         logging.info(f"URLs encontradas en el footer: {teams_urls}")
 
         # Guardar en YAML con formato team: url
