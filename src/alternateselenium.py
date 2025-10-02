@@ -32,6 +32,10 @@ CHROMEDRIVER_PATH = os.getenv(
 DRAFT_URL = os.getenv(
     "DRAFT_URL", "https://www.nfl.com/draft/tracker/teams/buffalo-bills/2025"
 )
+ADDAM_SCHEFTER = os.getenv(
+    "ADDAM_SCHEFTER", "https://www.espn.com/contributor/adam-schefter"
+)
+
 TEAM_SITE = os.getenv("TEAM_SITE", "https://www.nfl.com/international")
 PICKS_YAML = os.getenv("PICKS_YAML", "picks.yaml")
 
@@ -99,6 +103,32 @@ def get_footer_url_teams(driver):
     except Exception as e:
         logging.error(f"Error al obtener URLs del footer: {e}")
         return []
+
+
+def get_adam_schefter_news(driver, retries=3, wait_time=40):
+    for attempt in range(retries):
+        try:
+            driver.get(ADDAM_SCHEFTER)
+            news_elements = WebDriverWait(driver, wait_time).until(
+                EC.presence_of_all_elements_located(
+                    (By.XPATH, '//section[contains(@class, "ContentList")]//a')
+                )
+            )
+            news_links = [
+                elem.get_attribute("href")
+                for elem in news_elements
+                if elem.get_attribute("href")
+            ]
+            if news_links:
+                logging.info(f"Noticias encontradas: {news_links}")
+                return news_links
+        except TimeoutException as e:
+            logging.warning(f"Intento {attempt + 1} fallido: {e}")
+        except Exception as e:
+            logging.error(f"Error inesperado: {e}")
+        if attempt < retries - 1:
+            time.sleep(5)
+    return []
 
 
 def main():
